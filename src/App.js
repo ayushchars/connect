@@ -4,6 +4,7 @@ import "./app.css";
 function App() {
   const [count, setCount] = useState(0);
   const [isFlying, setIsFlying] = useState(false);
+  const [showText, setshowText] = useState(false);
   const balloonRef = useRef(null);
   const containerRef = useRef(null);
   const audioContextRef = useRef(null);
@@ -53,6 +54,9 @@ function App() {
   useEffect(() => {
     if (count > 100) {
       setIsFlying(true);
+      setTimeout(() => {
+        setshowText(true)
+      }, 1000);
     }
   }, [count]);
 
@@ -72,7 +76,7 @@ function App() {
         style={{ width: `${balloonSize}px`, height: "auto" }}
       />
 
-      {isFlying && (
+      {showText && (
         <div className="message">
           Hi I'm Ayush Chaurasia, let's connect
         </div>
