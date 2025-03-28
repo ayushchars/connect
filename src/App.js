@@ -64,8 +64,6 @@ function App() {
       className={`container ${isFlying ? "fly" : ""}`}
       style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/background.jpg)` }}
     >
-      <div className="count">Count: {count}</div>
-
       <img
         src={`${process.env.PUBLIC_URL}/dog1.png`}
         alt="dog with balloon"
