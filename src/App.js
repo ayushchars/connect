@@ -66,10 +66,10 @@ function App() {
     <div
       ref={containerRef}
       className={`container ${isFlying ? "fly" : ""}`}
-      style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/background.jpg)` }}
+      style={{ backgroundImage: `url(./background.jpg)` }}
     >
       <img
-        src={`${process.env.PUBLIC_URL}/dog1.png`}
+        src={`./dog1.png`}
         alt="dog with balloon"
         ref={balloonRef}
         className={`dog ${isFlying ? "fly" : ""}`}
