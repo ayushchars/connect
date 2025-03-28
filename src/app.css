@@ -1,0 +1,98 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.dog {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 3s ease, width 0.2s ease;
+  height: auto;
+  max-width: 90vw;
+}
+
+.dog.fly {
+  bottom: 70%;
+}
+
+@media (max-width: 768px) {
+  .dog.fly {
+    bottom: 50%;
+  }
+}
+@media (max-width: 480px) {
+  .dog.fly {
+    bottom: 40%;
+  }
+}
+
+.count {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .count {
+    font-size: 16px;
+  }
+}
+
+.message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 20px;
+  animation: popIn 1s ease-out;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  z-index: 5;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .message {
+    font-size: 28px;
+    padding: 15px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .message {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
