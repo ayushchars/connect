@@ -6,16 +6,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [isFlying, setIsFlying] = useState(false);
   const [showText, setShowText] = useState(false);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const audioContextRef = useRef(null);
-
-  useEffect(() => {
-    // Update on resize
-    const handleResize = () => setViewportHeight(window.innerHeight);
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     let rafId;
@@ -66,20 +57,22 @@ function App() {
     }
   }, [count]);
 
-  const balloonSize = Math.min(150 + count / 2, 300); 
-  const flyDistance = -0.6 * viewportHeight;
+  const balloonSize = 150 + count / 2;
 
   return (
     <div className="container">
       <motion.img
-        src="./Dog.png"
+        src="./dog1.png"
         alt="dog"
         className="dog"
         initial={{ y: 0 }}
-        animate={{ y: isFlying ? flyDistance : 10 }}
+        animate={{ y: isFlying ? -700 : 10 }}
         transition={{ type: "spring", stiffness: 60 }}
-        style={{ width: `${balloonSize}px`, height: "auto" }}
+        style={{ width:`${balloonSize}px`, height: "auto" }}
       />
+
+      <div className="count">Volume Score: {count}</div>
+
       <AnimatePresence>
         {showText && (
           <motion.div
@@ -92,11 +85,11 @@ function App() {
             <h1>Hi, I'm <span className="highlight">Ayush Chaurasia</span></h1>
             <p>React & Node.js Developer | 2+ Years Experience</p>
             <div className="button-row">
-              <a href="https://www.linkedin.com/in/ayush-chaurasia-14366421a" target="_blank" rel="noreferrer" className="glass-btn">
+              <a href="https://www.linkedin.com/in/your-link" target="_blank" rel="noreferrer" className="glass-btn">
                 <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
                 LinkedIn
               </a>
-              <a href="https://ayushportfolio.vercel.app/" target="_blank" rel="noreferrer" className="glass-btn">
+              <a href="https://yourportfolio.com" target="_blank" rel="noreferrer" className="glass-btn">
                 <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Portfolio" />
                 Portfolio
               </a>
@@ -108,4 +101,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
